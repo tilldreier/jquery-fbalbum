@@ -1,0 +1,65 @@
+.albumThumb, .photoThumb {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #CCCCCC;
+	display: inline-block;
+	outline: medium none;
+	padding: 4px;
+	position: relative;
+	vertical-align: bottom;
+}
+.albumThumb:hover, .albumThumb:hover .albumThumbWrap {
+	border: 1px solid #3b5998
+}
+.albumThumb, .albumThumb i {
+	height: 111px;
+	width: 167px;
+}
+.photoThumb, .photoThumb i {
+	height: 120px;
+	width: 161px;
+}
+.albumThumbWrap {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #CCCCCC;
+	left: 4px;
+	padding: 4px;
+	position: absolute;
+	top: 4px;
+}
+.albumThumb i, .photoThumb i {
+	background-color: #EEEEEE;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: block;
+}
+.albumWrapper, .photoWrapper {
+	float: left;
+	margin: 5px;
+}
+.albumDetails {
+	width: 186px;
+	padding-top: 7px;
+	padding-bottom: 5px;
+	font-size: 11px;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+.albumText a {
+	color: #3B5998;
+	cursor: pointer;
+	text-decoration: none;
+}
+.albumText a:hover {
+	text-decoration: underline;
+}
+.albumCount {
+	color: #808080
+}
+.fb-album-footer{
+	color: #808080;
+	font-weight:bold;
+	font-size:10px;
+}
+#fb-album-header p{
+	color: #333;
+	font-size:11px;
+}

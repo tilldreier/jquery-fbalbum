@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<link media="all" href="css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css">
+		<link media="all" href="css/jquery.fb-album.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div id="fb-album"></div>
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/jquery.lightbox-0.5.pack.js"></script>
+		<script src="js/jquery.fb-album.js"></script>
+		<script src="http://connect.facebook.net/de_DE/all.js"></script>
+		<script>
+			$('#fb-album').fbalbum({
+				pageId: 'teamhoermann',
+				exclude:['352683711441378','196199743756443','190809797628771'],
+				lb:{fixedNavigation:false,
+	      						imageBtnPrev:'images/lightbox-btn-prev.gif',
+	      						imageBtnNext:'images/lightbox-btn-next.gif',
+	      						imageBlank:'images/lightbox-blank.gif',
+	      						imageLoading:'images/lightbox-ico-loading.gif',
+	      						imageBtnClose:'images/lightbox-btn-close.gif'
+	      					}
+			});
+		</script>
+	</body>
+</html>
