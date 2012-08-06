@@ -12,10 +12,10 @@ $('#fb-album').fbalbum({
 	lb:{
 		fixedNavigation:false,
 		imageBtnPrev:'images/lightbox-btn-prev.gif',
-	    imageBtnNext:'images/lightbox-btn-next.gif',
-	    imageBlank:'images/lightbox-blank.gif',
-	    imageLoading:'images/lightbox-ico-loading.gif',
-	    imageBtnClose:'images/lightbox-btn-close.gif'
+		imageBtnNext:'images/lightbox-btn-next.gif',
+		imageBlank:'images/lightbox-blank.gif',
+		imageLoading:'images/lightbox-ico-loading.gif',
+		imageBtnClose:'images/lightbox-btn-close.gif'
 	}
 });
 </script>
