@@ -197,7 +197,7 @@
 		$("<div>", {
 			class : "fb-album-footer",
 			style : 'clear:both',
-			html : 'Free jQuery Facebook photo plugin provided by <a href="http://www.antelo-dreier.com" target="_blank" >antelo&dreier</a> - Photos from <a target="_blank" href="http://www.facebook.com/' + opts.pageId + '">facebook.com/' + opts.pageId + '</a>'
+			html : 'Free jQuery Facebook photo plugin provided by <a href="https://github.com/tilldreier/jquery-fbalbum" target="_blank" >Till Dreier</a> - Photos from <a target="_blank" href="http://www.facebook.com/' + opts.pageId + '">facebook.com/' + opts.pageId + '</a>'
 		}).appendTo("#" + opts.id);
 
 		checkAnchor();

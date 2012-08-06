@@ -2,6 +2,24 @@ jQuery plugin to embedd Facebook photo albums in any website.
 
 The Ligthbox is based on the plugin from Leandro Vieira Pinho found here http://leandrovieira.com/projects/jquery/lightbox/
 
+Implementation:
+<div id="fb-album"></div>
+
+<script type="text/javascript>
+$('#fb-album').fbalbum({
+	pageId: 'teamhoermann',
+	exclude:['352683711441378','196199743756443'],
+	lb:{
+		fixedNavigation:false,
+		imageBtnPrev:'images/lightbox-btn-prev.gif',
+	    imageBtnNext:'images/lightbox-btn-next.gif',
+	    imageBlank:'images/lightbox-blank.gif',
+	    imageLoading:'images/lightbox-ico-loading.gif',
+	    imageBtnClose:'images/lightbox-btn-close.gif'
+	}
+});
+</script>
+
 Parameters:
 	- pageId:	The Id of the Facebook page. Can be the Id or the username
 	- exclude:	Ids of the albums you don't want to display. e.g. ['352683711441378','196199743756443']
