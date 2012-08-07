@@ -29,6 +29,7 @@
 		var offset = 0;
 		var photoOffset = 0;
 		var albumId = "";
+		var headerArray = new Array();
 
 		function loadAlbums() {
 			$('#fb-album-header').html("");
@@ -100,9 +101,10 @@
 		}
 
 		function showAlbum(id) {
-			albumId = id;
+			albumId=id;
 			if($('#fb-album-' + albumId).length != 0) {
 				$('#fb-album-' + albumId).fadeIn(1000);
+				$('#fb-album-header').html(headerArray[albumId]);
 			} else {
 				FB.api(albumId, function(response) {
 					var albname=response.name;
@@ -119,7 +121,9 @@
 					if(desc!=''){
 						desc='<p>'+desc+'</p>';
 					}
-					$('#fb-album-header').html('<a href="#"><< Zur&uuml;ck</a> - <b>' + albname + '</b>'+desc);
+					header='<a href="#"><< Zur&uuml;ck</a> - <b>' + albname + '</b>'+desc;
+					headerArray[albumId]=header;
+					$('#fb-album-header').html(header);
 					$("<div>", {
 						id : 'fb-album-' + albumId,
 						class : 'album'
@@ -128,6 +132,7 @@
 					photoCall();
 				});
 			}
+			
 		}
 
 		function photoCall() {
