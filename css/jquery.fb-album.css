@@ -7,6 +7,9 @@
 	position: relative;
 	vertical-align: bottom;
 }
+.albumThumb{
+	margin-bottom:10px;
+}
 .albumThumb:hover, .albumThumb:hover .albumThumbWrap {
 	border: 1px solid #3b5998
 }
@@ -35,6 +38,9 @@
 .albumWrapper, .photoWrapper {
 	float: left;
 	margin: 5px;
+}
+.albumWrapper {
+	width:181px;
 }
 .albumDetails {
 	width: 186px;
