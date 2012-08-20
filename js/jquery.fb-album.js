@@ -74,7 +74,7 @@
 						html += '<div class="albumCount">' + countTxt + '</div>';
 						html += '</div>';
 						$("<div>", {
-							class : "albumWrapper",
+							"class" : "albumWrapper",
 							style:clear,
 							html : html
 						}).appendTo("#fb-albums-all").fadeIn(1000);
@@ -126,7 +126,7 @@
 					$('#fb-album-header').html(header);
 					$("<div>", {
 						id : 'fb-album-' + albumId,
-						class : 'album'
+						"class" : 'album'
 					}).appendTo("#fb-album-content");
 					photoOffset = 0;
 					photoCall();
@@ -164,7 +164,7 @@
 					html += '</a>';
 					$("<div>", {
 						id : 'fb-photo-' + photo.id,
-						class : "photoWrapper",
+						"class" : "photoWrapper",
 						html : html
 					}).appendTo('#fb-album-' + albumId).fadeIn(1000);
 				}
@@ -200,7 +200,7 @@
 		}).appendTo("#" + opts.id);
 
 		$("<div>", {
-			class : "fb-album-footer",
+			"class" : "fb-album-footer",
 			style : 'clear:both',
 			html : 'Free jQuery Facebook photo plugin provided by <a href="https://github.com/tilldreier/jquery-fbalbum" target="_blank" >Till Dreier</a> - Photos from <a target="_blank" href="http://www.facebook.com/' + opts.pageId + '">facebook.com/' + opts.pageId + '</a>'
 		}).appendTo("#" + opts.id);
