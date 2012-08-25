@@ -63,14 +63,14 @@
 						if(mod==0){
 							clear=";clear:both";
 						}
-						var html = '<a class="albumThumb" style="width:'+opts.photoThumbWidth+'px;height:'+opts.photoThumbHeight+'px" title="' + album.name + '" href="#album-' + album.id + '">';
+						var html = '<a class="albumThumb fbLink" style="width:'+opts.photoThumbWidth+'px;height:'+opts.photoThumbHeight+'px" title="' + album.name + '" href="#album-' + album.id + '">';
 						html += '<span class="albumThumbWrap">';
 						html += '<i id="fb-album-thumb-' + album.cover_photo + '" style="width:'+opts.photoThumbWidth+'px;height:'+opts.photoThumbHeight+'px;"></i>';
 						html += '</span>';
 						html += '</a>';
 						html += '<div class="albumDetails" style="width:'+opts.photoThumbWidth+'px;">';
 						html += '<div class="albumText">';
-						html += '<a href="#album-' + album.id + '"><strong>' + album.name + '</strong></a>';
+						html += '<a class="fbLink" href="#album-' + album.id + '"><strong>' + album.name + '</strong></a>';
 						html += '<div class="albumCount">' + countTxt + '</div>';
 						html += '</div>';
 						$("<div>", {
@@ -78,6 +78,10 @@
 							style:clear,
 							html : html
 						}).appendTo("#fb-albums-all").fadeIn(1000);
+						
+						$('.fbLink').bind('click',function(e){
+							checkAnchor($(this).attr('href'));
+						});
 
 						FB.api(album.cover_photo, function(response) {
 							var img = 'http://src.sencha.io/'+(opts.albumThumbWidth+10)+'/' + response.source;
@@ -105,6 +109,10 @@
 			if($('#fb-album-' + albumId).length != 0) {
 				$('#fb-album-' + albumId).fadeIn(1000);
 				$('#fb-album-header').html(headerArray[albumId]);
+					
+				$('.fbLink').bind('click',function(e){
+					checkAnchor($(this).attr('href'));
+				});
 			} else {
 				FB.api(albumId, function(response) {
 					var albname=response.name;
@@ -121,7 +129,7 @@
 					if(desc!=''){
 						desc='<p>'+desc+'</p>';
 					}
-					header='<a href="#"><< Zur&uuml;ck</a> - <b>' + albname + '</b>'+desc;
+					header='<a href="#" class="fbLink"><< Zur&uuml;ck</a> - <b>' + albname + '</b>'+desc;
 					headerArray[albumId]=header;
 					$('#fb-album-header').html(header);
 					$("<div>", {
@@ -130,9 +138,12 @@
 					}).appendTo("#fb-album-content");
 					photoOffset = 0;
 					photoCall();
+					
+					$('.fbLink').bind('click',function(e){
+						checkAnchor($(this).attr('href'));
+					});
 				});
 			}
-			
 		}
 
 		function photoCall() {
@@ -177,8 +188,8 @@
 			});
 		}
 
-		function checkAnchor() {
-			var anchor = $(location).attr('hash').split('-');
+		function checkAnchor(href) {
+			var anchor = href.split('-');
 			if(anchor[0] == '#album') {
 				if($('#fb-albums-all').length != 0) {
 					$('#fb-albums-all').hide();
@@ -204,10 +215,14 @@
 			style : 'clear:both',
 			html : 'Free jQuery Facebook photo plugin provided by <a href="https://github.com/tilldreier/jquery-fbalbum" target="_blank" >Till Dreier</a> - Photos from <a target="_blank" href="http://www.facebook.com/' + opts.pageId + '">facebook.com/' + opts.pageId + '</a>'
 		}).appendTo("#" + opts.id);
+		
+		$('.album').hide();
+		loadAlbums();
 
-		checkAnchor();
+		
+		/*checkAnchor();
 		$(window).bind('hashchange', function() {
 			checkAnchor();
-		});
+		});*/
 	}
 })(jQuery);
