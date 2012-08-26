@@ -63,25 +63,26 @@
 						if(mod==0){
 							clear=";clear:both";
 						}
-						var html = '<a class="albumThumb fbLink" style="width:'+opts.photoThumbWidth+'px;height:'+opts.photoThumbHeight+'px" title="' + album.name + '" href="#album-' + album.id + '">';
+						var html = '<div class="albumThumb fbLink" style="width:'+opts.photoThumbWidth+'px;height:'+opts.photoThumbHeight+'px" title="' + album.name + '" href="#album-' + album.id + '">';
 						html += '<span class="albumThumbWrap">';
 						html += '<i id="fb-album-thumb-' + album.cover_photo + '" style="width:'+opts.photoThumbWidth+'px;height:'+opts.photoThumbHeight+'px;"></i>';
 						html += '</span>';
-						html += '</a>';
+						html += '</div>';
 						html += '<div class="albumDetails" style="width:'+opts.photoThumbWidth+'px;">';
 						html += '<div class="albumText">';
-						html += '<a class="fbLink" href="#album-' + album.id + '"><strong>' + album.name + '</strong></a>';
+						html += '<div class="fbLink" href="#album-' + album.id + '"><strong>' + album.name + '</strong></div>';
 						html += '<div class="albumCount">' + countTxt + '</div>';
 						html += '</div>';
 						$("<div>", {
 							"class" : "albumWrapper",
 							style:clear,
 							html : html
-						}).appendTo("#fb-albums-all").fadeIn(1000);
+						}).appendTo("#fb-albums-all").fadeIn(1000,function(){$('.fbLink').live('click',function(e){
+						checkAnchor($(this).attr('href'));
+					});});
 						
-						$('.fbLink').bind('click',function(e){
-							checkAnchor($(this).attr('href'));
-						});
+					
+					
 
 						FB.api(album.cover_photo, function(response) {
 							var img = 'http://src.sencha.io/'+(opts.albumThumbWidth+10)+'/' + response.source;
@@ -129,7 +130,7 @@
 					if(desc!=''){
 						desc='<p>'+desc+'</p>';
 					}
-					header='<a href="#" class="fbLink"><< Zur&uuml;ck</a> - <b>' + albname + '</b>'+desc;
+					header='<span href="#" class="fbLink" ><< Zur&uuml;ck</span> - <b>' + albname + '</b>'+desc;
 					headerArray[albumId]=header;
 					$('#fb-album-header').html(header);
 					$("<div>", {
@@ -139,7 +140,7 @@
 					photoOffset = 0;
 					photoCall();
 					
-					$('.fbLink').bind('click',function(e){
+					$('.fbLink').live('click',function(e){
 						checkAnchor($(this).attr('href'));
 					});
 				});
