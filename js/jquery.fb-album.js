@@ -105,8 +105,7 @@
 			});
 		}
 
-		function showAlbum(id) {
-			albumId=id;
+		function showAlbum() {
 			if($('#fb-album-' + albumId).length != 0) {
 				$('#fb-album-' + albumId).fadeIn(1000);
 				$('#fb-album-header').html(headerArray[albumId]);
@@ -195,7 +194,10 @@
 				if($('#fb-albums-all').length != 0) {
 					$('#fb-albums-all').hide();
 				}
-				showAlbum(anchor[1]);
+				if(albumId!=anchor[1]){
+					albumId=anchor[1];
+					showAlbum();
+				}
 			} else {
 				$('.album').hide();
 				loadAlbums();
